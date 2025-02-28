@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsyfep1odrxje"]
+[gd_scene load_steps=3 format=3 uid="uid://dsyfep1odrxje"]
 
-[ext_resource type="PackedScene" path="res://Scenes/Ground.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://biigcqdl1wjjq" path="res://scenes/Ground.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://dir7t50emoopu" path="res://scenes/player.tscn" id="2_hal8p"]
 
 [node name="Root" type="Node2D"]
 
@@ -8,7 +9,13 @@
 position = Vector2(507.708, 363.86)
 
 [node name="Ground2" parent="." instance=ExtResource("1")]
-position = Vector2(789.149, 294.054)
+position = Vector2(781, 293)
 
 [node name="Ground3" parent="." instance=ExtResource("1")]
 position = Vector2(225.95, 294.562)
+
+[node name="Ground4" parent="." instance=ExtResource("1")]
+position = Vector2(827, 145)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_hal8p")]
+position = Vector2(122, 200)
