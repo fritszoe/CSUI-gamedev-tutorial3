@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
-@export var gravity = 360.0
+@export var gravity = 600.0
 @export var walk_speed = 200
-@export var jump_speed = -250.0
+@export var jump_speed = -325.0
 @export var max_jump = 2
 @export var dash_speed = 400.0
-@export var time_interval_doubleTap = 0.3
+@export var time_interval_double_tap = 0.3
 @export var dash_duration = 1.0
 @export var crouch_speed = 100.0
 
@@ -59,12 +59,12 @@ func _physics_process(delta):
 
 	# Dash (lari cepat)
 	if Input.is_action_just_pressed("ui_left"):
-		if (Time.get_ticks_msec() / 1000.0) - last_tap_l < time_interval_doubleTap:
+		if (Time.get_ticks_msec() / 1000.0) - last_tap_l < time_interval_double_tap:
 			dash(-1)
 		last_tap_l = Time.get_ticks_msec() / 1000.0
 
 	elif Input.is_action_just_pressed("ui_right"):
-		if (Time.get_ticks_msec() / 1000.0) - last_tap_r < time_interval_doubleTap:
+		if (Time.get_ticks_msec() / 1000.0) - last_tap_r < time_interval_double_tap:
 			dash(1)
 		last_tap_r = Time.get_ticks_msec() / 1000.0
 

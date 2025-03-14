@@ -3,6 +3,9 @@ extends CharacterBody2D
 @export var speed: float = 50.0
 @export var move_direction: int = -1  # -1 untuk kiri, 1 untuk kanan
 @export var player: NodePath
+
+signal zombie_died
+
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var dead_sound = $deadSound
 
@@ -29,12 +32,8 @@ func _physics_process(delta):
 		#await get_tree().create_timer(1).timeout  # Idle sebelum bergerak kembali
 		animated_sprite.play("walk")
 
-
-signal zombie_died
-
-
 func _on_hurt_box_body_entered(body: Node2D) -> void:
-	if body.get_name() == "Player":  # Jika objek yang masuk ke HurtBox adalah player
+	if body.name == "Player":  # Jika objek yang masuk ke HurtBox adalah player
 		#get_tree().change_scene_to_file(str("res://scenes/" + "Main" + ".tscn"))
 		var player_velocity = body.velocity
 		if player_velocity.y > 0:  # Jika player jatuh dari atas ke zombie4

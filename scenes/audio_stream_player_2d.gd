@@ -6,7 +6,7 @@ extends AudioStreamPlayer2D
 @export var proximity_distance: float = 600.0  # Jarak maksimum untuk mendengar suara
 
 
-func _process(delta):
+func _process(delta: float) -> void:
 	if player:
 		var player_node = get_node(player)
 		var distance = global_position.distance_to(player_node.global_position)
