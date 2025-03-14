@@ -13,11 +13,20 @@ press up two times
 press down
 
 # Update:
+****
 
-**How to Kill enemy?**:
-jump and then hit them (like mario)
+**Zombies?!**:
+Watch out, if they hit you, you'll start the level all over again.
 \
 &nbsp;
+jump and then hit them (like mario) so they can't bother you anymore, they scream when they die too. Be careful tho, they can respawn. 
+
+**Is that music?!**
+Yes it is, I've added BGM that changes when you're near the enemy, the music becomes more tense
+\
+&nbsp;
+SFX:
+- https://freesound.org/people/LittleRobotSoundFactory/sounds/316244/
 \
 &nbsp;
 \
