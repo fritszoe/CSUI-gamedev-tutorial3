@@ -4,12 +4,14 @@ extends CharacterBody2D
 @export var move_direction: int = -1  # -1 untuk kiri, 1 untuk kanan
 @export var player: NodePath
 @onready var animated_sprite = $AnimatedSprite2D
-@onready var dead_sound = $deadSound 
+@onready var dead_sound = $deadSound
 
 var is_dead = false
 
+
 func _ready():
 	animated_sprite.flip_h = (move_direction == -1)
+
 
 func _physics_process(delta):
 	if is_dead:
@@ -26,9 +28,11 @@ func _physics_process(delta):
 		animated_sprite.flip_h = (move_direction == -1)
 		#await get_tree().create_timer(1).timeout  # Idle sebelum bergerak kembali
 		animated_sprite.play("walk")
-		
+
+
 signal zombie_died
-		
+
+
 func _on_hurt_box_body_entered(body: Node2D) -> void:
 	if body.get_name() == "Player":  # Jika objek yang masuk ke HurtBox adalah player
 		#get_tree().change_scene_to_file(str("res://scenes/" + "Main" + ".tscn"))
@@ -37,7 +41,7 @@ func _on_hurt_box_body_entered(body: Node2D) -> void:
 			is_dead = true
 			animated_sprite.play("Dead")
 			dead_sound.play()
-			
+
 			await get_tree().create_timer(2).timeout
 			zombie_died.emit()
 			queue_free()  # Hapus zombie setelah mati

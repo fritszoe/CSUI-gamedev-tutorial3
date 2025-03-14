@@ -7,15 +7,17 @@ extends Node2D
 @onready var bgm_main = $bgm_main
 @onready var bgm_zombie = $bgm_zombie
 
+
 func _ready():
 	# Pastikan hanya BGM utama yang diputar di awal
 	bgm_main.play()
 	bgm_zombie.stop()
 
+
 func _process(delta):
 	if not player or not zombie:
 		return
-	
+
 	var player_node = get_node(player)
 	var zombie_node = get_node(zombie)
 

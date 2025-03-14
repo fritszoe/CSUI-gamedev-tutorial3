@@ -21,9 +21,11 @@ var original_walk_speed = 0.0
 @onready var run_collision = $RunCollisionShape
 @onready var crouch_collision = $CrouchCollisionShape
 
+
 func _ready():
 	original_walk_speed = walk_speed
 	_update_collision("idle")  # Set default collision
+
 
 func _physics_process(delta):
 	velocity.y += delta * gravity
@@ -99,6 +101,7 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+
 func dash(direction):
 	velocity.x = dash_speed * direction
 	is_dashing = true
@@ -107,17 +110,20 @@ func dash(direction):
 	await get_tree().create_timer(dash_duration).timeout
 	is_dashing = false
 
+
 func start_crouch():
 	is_crouching = true
 	walk_speed = crouch_speed
 	anim_sprite.play("crouch")
 	_update_collision("crouch")
 
+
 func stop_crouch():
 	is_crouching = false
 	walk_speed = original_walk_speed
 	anim_sprite.play("idle")
 	_update_collision("idle")
+
 
 func _update_collision(animation_name):
 	idle_collision.disabled = (animation_name != "idle")

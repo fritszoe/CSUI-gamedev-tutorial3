@@ -11,6 +11,11 @@ press up two times
 
 **crouching**:
 press down
+
+# Update:
+
+**How to Kill enemy?**:
+jump and then hit them (like mario)
 \
 &nbsp;
 \

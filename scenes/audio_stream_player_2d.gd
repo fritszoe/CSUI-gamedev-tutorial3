@@ -5,6 +5,7 @@ extends AudioStreamPlayer2D
 @export var min_volume: float = -30.0  # Volume minimal (saat jauh)
 @export var proximity_distance: float = 600.0  # Jarak maksimum untuk mendengar suara
 
+
 func _process(delta):
 	if player:
 		var player_node = get_node(player)
