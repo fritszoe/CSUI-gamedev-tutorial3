@@ -92,7 +92,7 @@ size = Vector2(71, 91)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atkhu"]
 size = Vector2(75, 69)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D"]
 script = ExtResource("1_ctpnn")
 
 [node name="IdleCollisionShape" type="CollisionShape2D" parent="."]
@@ -122,3 +122,5 @@ debug_color = Color(0.856711, 0.298909, 0.546538, 0.42)
 position = Vector2(0, 24)
 shape = SubResource("RectangleShape2D_atkhu")
 debug_color = Color(0.643985, 0.409519, 0.836522, 0.42)
+
+[node name="Camera2D" type="Camera2D" parent="."]

@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://cy2dpxhv0tnpe"]
+
+[ext_resource type="Script" path="res://scenes/enemy.gd" id="1_3pfm4"]
+[ext_resource type="Texture2D" uid="uid://dgvfedh1teejy" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_duck.png" id="2_whyl8"]
+[ext_resource type="Texture2D" uid="uid://bpc6e5ojqehlc" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_stand.png" id="3_7260a"]
+[ext_resource type="Texture2D" uid="uid://bvrk5ia7qa012" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_walk1.png" id="4_m3o50"]
+[ext_resource type="Texture2D" uid="uid://jnt42t5uwigs" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_walk2.png" id="5_4dk27"]
+[ext_resource type="AudioStream" uid="uid://dnq6k0p2xibme" path="res://assets/sounds/zombie-sound.wav" id="6_yofg0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_al4tv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_whyl8")
+}],
+"loop": true,
+"name": &"Dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7260a")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_m3o50")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4dk27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_m3o50")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4dk27")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_du5sh"]
+size = Vector2(50, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccwck"]
+size = Vector2(58, 79.5)
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_3pfm4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_al4tv")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 48.5)
+shape = SubResource("RectangleShape2D_du5sh")
+
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(1, 14.75)
+shape = SubResource("RectangleShape2D_ccwck")
+
+[node name="deadSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_yofg0")
+
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

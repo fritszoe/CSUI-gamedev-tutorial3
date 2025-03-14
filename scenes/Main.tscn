@@ -1,21 +1,63 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsyfep1odrxje"]
+[gd_scene load_steps=9 format=3 uid="uid://dsyfep1odrxje"]
 
 [ext_resource type="PackedScene" uid="uid://biigcqdl1wjjq" path="res://scenes/Ground.tscn" id="1"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_odwgv"]
 [ext_resource type="PackedScene" uid="uid://dir7t50emoopu" path="res://scenes/player.tscn" id="2_hal8p"]
+[ext_resource type="PackedScene" uid="uid://cy2dpxhv0tnpe" path="res://scenes/enemy.tscn" id="3_1vvqc"]
+[ext_resource type="Script" path="res://scenes/spawner.gd" id="4_cqvbj"]
+[ext_resource type="AudioStream" uid="uid://cmfilrmypm03p" path="res://assets/sounds/bgm-zombie.wav" id="5_8kstj"]
+[ext_resource type="AudioStream" uid="uid://ynal18wya15e" path="res://assets/sounds/assets_sound_bgm.wav" id="5_qf3bv"]
+[ext_resource type="Script" path="res://scenes/audio_stream_player_2d.gd" id="6_yuhew"]
 
 [node name="Root" type="Node2D"]
+script = ExtResource("1_odwgv")
+player = NodePath("Player")
+zombie = NodePath("ZombieSpawner")
 
 [node name="Ground" parent="." instance=ExtResource("1")]
 position = Vector2(507.708, 363.86)
 
 [node name="Ground2" parent="." instance=ExtResource("1")]
-position = Vector2(781, 293)
+position = Vector2(809, 292)
 
 [node name="Ground3" parent="." instance=ExtResource("1")]
-position = Vector2(225.95, 294.562)
+position = Vector2(180, 295)
+
+[node name="Ground9" parent="." instance=ExtResource("1")]
+position = Vector2(-349, 141)
+
+[node name="Ground11" parent="." instance=ExtResource("1")]
+position = Vector2(-515, 299)
+
+[node name="Ground12" parent="." instance=ExtResource("1")]
+position = Vector2(-172, 299)
 
 [node name="Ground4" parent="." instance=ExtResource("1")]
-position = Vector2(827, 145)
+position = Vector2(1862, 219)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_hal8p")]
-position = Vector2(122, 200)
+[node name="Ground5" parent="." instance=ExtResource("1")]
+position = Vector2(1506, 219)
+
+[node name="Ground6" parent="." instance=ExtResource("1")]
+position = Vector2(1286, 63)
+
+[node name="Ground7" parent="." instance=ExtResource("1")]
+position = Vector2(1150, 219)
+
+[node name="Player" parent="." instance=ExtResource("2_hal8p")]
+position = Vector2(-669, 197)
+
+[node name="ZombieSpawner" type="Node2D" parent="."]
+position = Vector2(396, 237)
+script = ExtResource("4_cqvbj")
+zombie_scene = ExtResource("3_1vvqc")
+
+[node name="bgm_zombie" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(408, 226)
+stream = ExtResource("5_8kstj")
+autoplay = true
+script = ExtResource("6_yuhew")
+player = NodePath("../Player")
+
+[node name="bgm_main" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_qf3bv")
