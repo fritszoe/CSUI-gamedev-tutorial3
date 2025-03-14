@@ -32,6 +32,7 @@ func _physics_process(delta):
 		#await get_tree().create_timer(1).timeout  # Idle sebelum bergerak kembali
 		animated_sprite.play("walk")
 
+
 func _on_hurt_box_body_entered(body: Node2D) -> void:
 	if body.name == "Player":  # Jika objek yang masuk ke HurtBox adalah player
 		#get_tree().change_scene_to_file(str("res://scenes/" + "Main" + ".tscn"))
