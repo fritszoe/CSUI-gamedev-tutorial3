@@ -1,15 +1,15 @@
 extends CharacterBody2D
 
+signal zombie_died
+
 @export var speed: float = 50.0
 @export var move_direction: int = -1  # -1 untuk kiri, 1 untuk kanan
 @export var player: NodePath
 
-signal zombie_died
+var is_dead = false
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var dead_sound = $deadSound
-
-var is_dead = false
 
 
 func _ready():
