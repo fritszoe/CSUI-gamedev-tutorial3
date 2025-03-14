@@ -6,10 +6,10 @@ extends CharacterBody2D
 
 signal zombie_died
 
-var is_dead = false
-
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var dead_sound = $deadSound
+
+var is_dead = false
 
 
 func _ready():
