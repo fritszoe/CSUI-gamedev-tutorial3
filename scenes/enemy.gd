@@ -16,7 +16,7 @@ func _ready():
 	animated_sprite.flip_h = (move_direction == -1)
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if is_dead:
 		velocity.x = 0
 		return

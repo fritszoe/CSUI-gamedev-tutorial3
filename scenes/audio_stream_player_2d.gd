@@ -1,12 +1,12 @@
 extends AudioStreamPlayer2D
 
 @export var player: NodePath  # Pilih node Player dari editor
-@export var max_volume: float = 0.0  # Volume maksimal (default: 0 dB)
-@export var min_volume: float = -30.0  # Volume minimal (saat jauh)
+@export var max_volume: float = 20.0  # Volume maksimal (default: 0 dB)
+@export var min_volume: float = -10.0  # Volume minimal (saat jauh)
 @export var proximity_distance: float = 600.0  # Jarak maksimum untuk mendengar suara
 
 
-func _process(delta: float) -> void:
+func _process(_delta):
 	if player:
 		var player_node = get_node(player)
 		var distance = global_position.distance_to(player_node.global_position)

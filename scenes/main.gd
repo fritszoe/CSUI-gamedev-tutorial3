@@ -14,7 +14,7 @@ func _ready():
 	bgm_zombie.stop()
 
 
-func _process(delta):
+func _process(_delta):
 	if not player or not zombie:
 		return
 
